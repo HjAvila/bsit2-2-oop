@@ -25,15 +25,13 @@ public class Main {
         }
     }
 
+    // Compact output version
     public void displayResult(String studentName, double average) {
-        System.out.println("Student: " + studentName);
-        System.out.println("Average: " + average);
+        System.out.printf("Student: %s, Average: %.1f%n", studentName, average);
     }
 
     public void displayResult(String studentName, double average, String letterGrade) {
-        System.out.println("Student: " + studentName);
-        System.out.println("Average: " + average);
-        System.out.println("Letter Grade: " + letterGrade);
+        System.out.printf("Student: %s, Average: %.1f, Grade: %s%n", studentName, average, letterGrade);
     }
 
     public static void main(String[] args) {
@@ -43,10 +41,7 @@ public class Main {
         double average = gc.calculateAverage(85.5, 92.0, 78.5, 90.0);
         String letterGrade = gc.getLetterGrade(average);
 
-        System.out.println("Result");
         gc.displayResult(studentName, average);
-
-        System.out.println("\nResult: " );
         gc.displayResult(studentName, average, letterGrade);
     }
 }
