@@ -25,7 +25,6 @@ public class Main {
         }
     }
 
-    // Compact output version
     public void displayResult(String studentName, double average) {
         System.out.printf("Student: %s, Average: %.1f%n", studentName, average);
     }
