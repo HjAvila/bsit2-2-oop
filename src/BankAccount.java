@@ -2,7 +2,7 @@ public class BankAccount {
     static String bankName = "Liceo Bank";
     static int totalAccounts = 0;
     static double interestRate = 0.03;
-    private static int accountCounter = 1000;
+    private static int accountCounter = 0;
 
     private String accountNumber;
     private String accountHolderName;
@@ -10,7 +10,7 @@ public class BankAccount {
 
     public static String generateAccountNumber() {
         accountCounter++;
-        return "ACC" + accountCounter;
+        return String.format("ACC%03d", accountCounter);
     }
 
     public BankAccount(String accountHolderName, double initialBalance) {
@@ -18,13 +18,14 @@ public class BankAccount {
         this.accountHolderName = accountHolderName;
         this.balance = initialBalance;
         totalAccounts++;
+        System.out.println("Account Created: " + accountNumber + " for "
+                + accountHolderName + " with initial balance: $" + balance);
     }
-
 
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            System.out.println(amount + " deposited successfully.");
+            System.out.println(accountHolderName + " deposited $" + amount + ". New balance: $" + balance);
         } else {
             System.out.println("Invalid deposit amount.");
         }
@@ -33,7 +34,7 @@ public class BankAccount {
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            System.out.println(amount + " withdrawn successfully.");
+            System.out.println(accountHolderName + " withdrew $" + amount + ".\nNew balance: $" + balance);
         } else {
             System.out.println("Insufficient balance or invalid amount.");
         }
@@ -43,12 +44,7 @@ public class BankAccount {
         return balance * interestRate;
     }
 
-    public void displayAccountInfo() {
-        System.out.println("Bank: " + bankName);
-        System.out.println("Account Number: " + accountNumber);
-        System.out.println("Account Holder: " + accountHolderName);
-        System.out.println("Balance: " + balance);
-        System.out.println("Interest Earned: " + calculateInterest());
-        System.out.println("-------------------------------");
+    public String getAccountHolderName() {
+        return accountHolderName;
     }
 }

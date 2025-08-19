@@ -1,25 +1,26 @@
 public class Main {
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
+        System.out.println("Bank Name: " + BankAccount.bankName);
+        System.out.println("Interest Rate: " + (BankAccount.interestRate * 100) + "%\n");
 
-        BankAccount acc1 = new BankAccount("Hans Avila", 5000);
-        BankAccount acc2 = new BankAccount("John Doe", 3000);
-        BankAccount acc3 = new BankAccount("Jane Smith", 10000);
-        System.out.println("Welcome to " + BankAccount.bankName);
-        System.out.println("=====================================");
+        BankAccount acc1 = new BankAccount("John Doe", 1000.0);
+        BankAccount acc2 = new BankAccount("Jane Smith", 2500.0);
+        BankAccount acc3 = new BankAccount("Bob Johnson", 500.0);
 
-        acc1.deposit(2000);
-        acc1.withdraw(1500);
+        System.out.println("==Account Operations==");
+        System.out.println();
 
-        acc2.deposit(1000);
-        acc2.withdraw(500);
+        acc1.deposit(500.0);
+        acc2.withdraw(300.0);
 
-        acc3.withdraw(2000);
-        acc3.deposit(5000);
+        System.out.println("==Interest Calculation==");
+        System.out.println();
 
-        acc1.displayAccountInfo();
-        acc2.displayAccountInfo();
-        acc3.displayAccountInfo();
+        System.out.println(acc1.getAccountHolderName() + "'s interest: $" + acc1.calculateInterest());
+        System.out.println(acc2.getAccountHolderName() + "'s interest: $" + acc2.calculateInterest());
+        System.out.println(acc3.getAccountHolderName() + "'s interest: $" + acc3.calculateInterest());
 
+        System.out.println();
         System.out.println("Total Accounts Created: " + BankAccount.totalAccounts);
     }
 }
