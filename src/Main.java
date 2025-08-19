@@ -7,12 +7,14 @@ public class Main {
         BankAccount acc2 = new BankAccount("Jane Smith", 2500.0);
         BankAccount acc3 = new BankAccount("Bob Johnson", 500.0);
 
+        System.out.println();
         System.out.println("==Account Operations==");
         System.out.println();
 
         acc1.deposit(500.0);
         acc2.withdraw(300.0);
 
+        System.out.println();
         System.out.println("==Interest Calculation==");
         System.out.println();
 
