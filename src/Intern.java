@@ -1,28 +1,25 @@
 public class Intern extends Employee {
-    private String university;
-    private boolean isFullTime;
+    String university;
+    boolean fullTime;
 
-    public Intern(String name, int employeeId, double baseSalary, String department, String university, boolean isFullTime) {
-        super(name, employeeId, baseSalary, department);
+    Intern(String name, int id, double baseSalary, String department, String university, boolean fullTime) {
+        super(name, id, baseSalary, department);
         this.university = university;
-        this.isFullTime = isFullTime;
+        this.fullTime = fullTime;
         System.out.println("Intern " + name + " from " + university + " has started");
     }
 
-    @Override
-    public double calculateSalary() {
-        return baseSalary * 0.5;
-    }
-
-    @Override
-    public void work() {
+    void assist() {
         System.out.println(name + " is learning and assisting with tasks");
     }
 
-    @Override
-    public void displayInfo() {
-        super.displayInfo();
+    double calculateSalary() {
+        return baseSalary / 2;
+    }
+
+    void displayDetails() {
+        super.displayDetails();
         System.out.println("University: " + university);
-        System.out.println("Full-time: " + isFullTime);
+        System.out.println("Full-time: " + fullTime);
     }
 }
