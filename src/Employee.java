@@ -4,7 +4,6 @@ public class Employee {
     protected double baseSalary;
     protected String department;
 
-
     public Employee(String name, int employeeId, double baseSalary, String department) {
         this.name = name;
         this.employeeId = employeeId;
@@ -12,7 +11,6 @@ public class Employee {
         this.department = department;
         System.out.println("Employee " + name + " has been hired in " + department + " department");
     }
-
 
     public void displayInfo() {
         System.out.println("--- Employee Details ---");
