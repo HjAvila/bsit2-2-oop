@@ -2,8 +2,7 @@ public class Intern extends Employee {
     private String university;
     private boolean isFullTime;
 
-    public Intern(String name, int employeeId, double baseSalary, String department,
-                  String university, boolean isFullTime) {
+    public Intern(String name, int employeeId, double baseSalary, String department, String university, boolean isFullTime) {
         super(name, employeeId, baseSalary, department);
         this.university = university;
         this.isFullTime = isFullTime;
