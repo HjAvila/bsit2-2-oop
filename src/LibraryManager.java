@@ -20,16 +20,17 @@ public class LibraryManager {
         for (Borrowable b : items) {
             if (b instanceof LibraryItem) {
                 LibraryItem li = (LibraryItem) b;
-                System.out.println(li.getItemType() + ": " + li.getTitle() + " (" + b.getBorrowingStatus() + ")");
+                String status = b.getBorrowingStatus();
+                System.out.println(li.getItemType() + ": " + li.getTitle() + " (" + status + ")");
             }
         }
     }
 
-    public LibraryItem findItemById(String itemId) {
+    public LibraryItem findItemById(String id) {
         for (Borrowable b : items) {
             if (b instanceof LibraryItem) {
                 LibraryItem li = (LibraryItem) b;
-                if (li.getItemId().equals(itemId)) return li;
+                if (li.getItemId().equals(id)) return li;
             }
         }
         return null;
@@ -49,6 +50,23 @@ public class LibraryManager {
             } else {
                 System.out.println("Sorry, " + li.getTitle() + " is not available");
             }
+        }
+    }
+
+    public void borrowItem(String itemId, User user) {
+        LibraryItem li = findItemById(itemId);
+        if (li == null) {
+            System.out.println("Item not found: " + itemId);
+            return;
+        }
+        if (!(li instanceof Borrowable)) return;
+        Borrowable b = (Borrowable) li;
+        if (b.isAvailable() && user.getBorrowedItemsCount() < user.getMaxBorrowLimit()) {
+            b.borrowItem(user.getName());
+            user.addBorrowedItem(li);
+            System.out.println(user.getName() + " (" + (user instanceof Student ? "Student" : "Faculty") + ") borrowed: " + li.getTitle());
+        } else {
+            System.out.println("Sorry, " + li.getTitle() + " is not available");
         }
     }
 
