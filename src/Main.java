@@ -19,7 +19,7 @@ public class Main {
 
         student.borrowMedia(book1);
         faculty.borrowMedia(dvd1);
-        student.borrowMedia(book1); // should fail
+        student.borrowMedia(book1);
 
         System.out.println("\n=== Displaying Available Items ===");
         manager.displayAvailableItems();
