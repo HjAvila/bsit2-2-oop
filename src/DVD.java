@@ -63,6 +63,6 @@ public class DVD extends LibraryItem implements Borrowable {
 
     @Override
     public void displayInfo() {
-        System.out.println("DVD: \"" + title + "\" (DVD) (ID: " + itemId + ")");
+        System.out.println("DVD: \"" + title + "\" (ID: " + itemId + ")");
     }
 }
