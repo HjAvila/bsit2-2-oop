@@ -19,13 +19,8 @@ public abstract class User {
 
     public int getBorrowedItemsCount() { return borrowedItems.size(); }
 
-    public void addBorrowedItem(LibraryItem item) {
-        borrowedItems.add(item);
-    }
-
-    public void removeBorrowedItem(LibraryItem item) {
-        borrowedItems.remove(item);
-    }
+    public void addBorrowedItem(LibraryItem item) { borrowedItems.add(item); }
+    public void removeBorrowedItem(LibraryItem item) { borrowedItems.remove(item); }
 
     public void displayBorrowedItems() {
         if (borrowedItems.isEmpty()) {
