@@ -14,7 +14,7 @@ public abstract class LibraryItem {
     }
 
     public String getItemInfo() {
-        return String.format("%s (%s) - ID: %s", title, getItemType(), itemId);
+        return String.format("%s - %s (ID: %s)", title, getItemType(), itemId);
     }
 
     public String getItemId() {
